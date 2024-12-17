@@ -8,10 +8,17 @@ def index():
     if request.method == "POST":
         title = request.form.get("title")
         content = request.form.get("content")
-        post = {"title": title, "content": content}
+        content1 = request.form.get("content1")
+        content2 = request.form.get("content2")
+        post = {"title": title, "content": content,"content1": content1,"content2": content2}
         # создаёт условие для проверки наличия данных в полях title и content
         if title and content:
-            posts.append({'title': title, 'content': content})
+            posts.append({
+            'title': title,
+            'content': content,
+            'content1': content1,
+            'content2': content2
+            })
         # использует для обновления страницы и предотвращения повторной отправки формы.
         # возвращает отрендеренный шаблон с переданными данными постов
         return redirect(url_for("index"))
