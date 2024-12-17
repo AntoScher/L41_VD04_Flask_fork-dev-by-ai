@@ -16,4 +16,4 @@ def index():
         }
         posts.append(post)
         return redirect(url_for("index"))
-    return render_template("form.html", form=form, posts=posts)
+    return render_template("blog.html", form=form, posts=posts)
